@@ -17,7 +17,13 @@ namespace TesterBacalar_v3.Controllers
 
         public ViewResult testerView()
         {
-            @ViewBag.Who = "testerV";
+            @ViewBag.Who = "testerV 222";
+            return View();
+        }
+
+        public ViewResult bbb()
+        {
+            @ViewBag.Who = "bbb";
             return View();
         }
     }
