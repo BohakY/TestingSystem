@@ -1,0 +1,76 @@
+﻿@model TesterBacalar_v3.Users
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<h2>Детально</h2>
+<p> </p>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/UsersStyle.css")
+</head>
+
+<body>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Id Користувача
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.user_id_)
+            </dd>
+            <dt>
+                Логін
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.login)
+            </dd>
+
+            <dt>
+                Пароль
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>
+
+            <dt>
+                Ім*я
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.first_name)
+            </dd>
+
+            <dt>
+                Прізвище
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.last_name)
+            </dd>
+
+            <dt>
+                Адмін / Не адмін
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.is_admin)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Редагувати", "Edit", new { id = Model.user_id_ }) |
+        @Html.ActionLink("Повернутися назад до списку", "UsersAdminstr")
+    </p>
+</body>

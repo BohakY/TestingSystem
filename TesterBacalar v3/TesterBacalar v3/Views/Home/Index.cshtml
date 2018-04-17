@@ -1,0 +1,59 @@
+﻿@{ 
+    Layout = null;
+}
+
+@model TesterBacalar_v3.Models.User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/EnterStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h4>Вітаємо! Введіть логін та пароль для початку роботи із тестером</h4>
+            </div>
+        </div>
+</header>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <label>Ваш логін:</label>
+                    <p>@Html.TextBoxFor(x => x.NameUser)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12">
+            <div class="form-group">
+                <div class="form-group">
+                    <label>Ваш пароль:</label>
+                    <p>@Html.PasswordFor(x => x.PassworsUser)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12">
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="submit" value="Вхід" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+}
+    </div>
+            <div class="error">
+                <h4>@ViewBag.Error</h4>
+            </div>
+</body>
+</html>

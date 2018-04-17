@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Rezult Tests";
+}
+
+@model TesterBacalar_v3.GetTableRezult_Result
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/AdminPanelStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    
+    <div class="row">
+        <div class="col-xs-3 col-md-12">
+
+            <table class="table">
+
+                <tr>
+                    <th>Іd Користувача</th>
+                    <th>Логін</th>
+                    <th>Ім*я</th>
+                    <th>Прізвище</th>
+                    <th>Назва тесту</th>
+                    <th>Назва предмету</th>
+                    <th>Id Результату</th>
+                    <th>Кількість правильних відповідей</th>
+                    <th>Загальна кількість балів</th>
+                    <th>Дата/час здачі</th>
+                </tr>
+
+                @foreach (TesterBacalar_v3.GetTableRezult_Result b in ViewBag.Rezult)
+    {
+            <tr>
+                <td data-label="Іd Користувача"><p>@b.user_id_</p></td>
+                <td><p>@b.login</p></td>
+                <td><p>@b.first_name</p></td>
+                <td><p>@b.last_name</p></td>
+                <td><p>@b.test_name</p></td>
+                <td><p>@b.subject_name</p></td>
+                <td><p>@b.rezult_id</p></td>
+                <td><p>@b.points</p></td>
+                <td><p>@b.total_score</p></td>
+                <td><p>@b.data_time</p></td>
+                <td><input type="submit" value="Видалити" class="btn btn-default" /></td>
+            </tr>
+}
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+

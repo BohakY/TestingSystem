@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TesterBacalar_v3.Users>
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Users";
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/UsersStyle.css")
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Додати нового користувача", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Id Користувача
+            </th>
+            <th>
+                Логін
+            </th>
+            <th>
+                Пароль
+            </th>
+            <th>
+                Ім*я
+            </th>
+            <th>
+                Прізвище
+            </th>
+            <th>
+                Адмін / Не адмін
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_id_)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.is_admin)
+                </td>
+                <td>
+                    @Html.ActionLink("Детальна інформація", "Details", new { id = item.user_id_ }) |
+                    @Html.ActionLink("Редагувати", "Edit", new { id = item.user_id_ }) |
+                    @Html.ActionLink("Видалити", "Delete", new { id = item.user_id_ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

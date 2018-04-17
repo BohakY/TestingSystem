@@ -1,0 +1,36 @@
+﻿body{
+    padding: 80px;
+    text-align:center;
+}
+
+table {
+    padding: 50px;
+    border-collapse: separate;
+    border-bottom: black;
+    padding: 10px;
+}
+
+th {
+    text-align: center;
+    padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    table td, th:before {
+        /*float: left;*/
+        /*text-transform: uppercase;
+        font-weight: bold;
+        display: block;
+        top: 6px;
+        left: 6px;
+        white-space: nowrap;*/
+        overflow-x: auto;
+        display: block;
+    }
+
+    body {
+        text-align: center;
+        padding: 120px;
+    }
+}
+

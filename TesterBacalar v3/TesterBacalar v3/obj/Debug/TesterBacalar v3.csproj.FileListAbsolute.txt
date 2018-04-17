@@ -1,0 +1,107 @@
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ApplicationInsights.config
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.dll.config
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.pdb
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Antlr3.Runtime.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.SqlServer.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Web.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.WindowsServer.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.ApplicationInsights.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.Web.Infrastructure.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Newtonsoft.Json.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Helpers.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Mvc.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Optimization.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Razor.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Deployment.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Razor.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\WebGrease.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.SqlServer.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Helpers.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Mvc.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Optimization.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Razor.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Deployment.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Razor.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Antlr3.Runtime.pdb
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Newtonsoft.Json.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.ApplicationInsights.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.WindowsServer.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Web.xml
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Helpers.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Mvc.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Optimization.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Razor.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Deployment.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Razor.resources.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CoreCompileInputs.cache
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.dll
+c:\users\filin life\source\repos\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.pdb
+C:\Users\Filin life\source\repos\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csprojResolveAssemblyReference.cache
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ApplicationInsights.config
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.dll.config
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.pdb
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Antlr3.Runtime.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.SqlServer.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Agent.Intercept.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.DependencyCollector.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Web.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.WindowsServer.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.ApplicationInsights.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.Web.Infrastructure.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Newtonsoft.Json.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Helpers.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Mvc.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Optimization.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Razor.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Deployment.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Razor.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\WebGrease.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.SqlServer.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Helpers.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Mvc.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Optimization.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Razor.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Deployment.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Razor.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Antlr3.Runtime.pdb
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Newtonsoft.Json.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.ApplicationInsights.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.DependencyCollector.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.WindowsServer.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Web.xml
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Helpers.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Mvc.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Optimization.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Razor.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csprojResolveAssemblyReference.cache
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CoreCompileInputs.cache
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CopyComplete
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.dll
+D:\IT Academy\TesterBacalar v3\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.pdb
