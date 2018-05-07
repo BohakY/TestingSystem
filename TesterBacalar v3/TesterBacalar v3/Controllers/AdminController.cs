@@ -25,5 +25,9 @@ namespace TesterBacalar_v3.Controllers
             return View();
         }
 
+        public ViewResult qwerty()
+        {
+            return View();
+        }
     }
 }
