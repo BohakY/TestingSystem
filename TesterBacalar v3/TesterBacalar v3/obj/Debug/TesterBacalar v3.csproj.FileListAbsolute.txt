@@ -158,3 +158,57 @@ C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CoreCompileInputs.cache
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.dll
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.pdb
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ApplicationInsights.config
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.dll.config
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\TesterBacalar v3.pdb
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Antlr3.Runtime.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.SqlServer.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Web.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.ApplicationInsights.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Newtonsoft.Json.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Helpers.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Mvc.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Optimization.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Razor.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Deployment.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Razor.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\WebGrease.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\EntityFramework.SqlServer.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Helpers.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Mvc.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Optimization.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.Razor.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Deployment.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\System.Web.WebPages.Razor.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Antlr3.Runtime.pdb
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Newtonsoft.Json.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.ApplicationInsights.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\Microsoft.AI.Web.xml
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Optimization.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.Razor.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csprojResolveAssemblyReference.cache
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CoreCompileInputs.cache
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CopyComplete
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.dll
+C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.pdb
