@@ -205,6 +205,7 @@
     <Content Include="Content\AdminStyle.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\TesterStyle.css" />
     <Content Include="Content\UsersStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -266,6 +267,7 @@
     <Content Include="Views\Tester\testerView.cshtml" />
     <Content Include="Views\Tester\bbb.cshtml" />
     <Content Include="Views\Admin\qwerty.cshtml" />
+    <Content Include="Views\Tester\Question.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

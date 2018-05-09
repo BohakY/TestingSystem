@@ -8,10 +8,14 @@ namespace TesterBacalar_v3.Controllers
 {
     public class TesterController : Controller
     {
+
+        TesterBacalarWorkBDEntities db = new TesterBacalarWorkBDEntities();
         // GET: Tester
         public ViewResult Tester()
         {
-            @ViewBag.Who = "Тестер панель";
+            var table = db.Tests.ToList();
+            @ViewBag.Tests = table;
+
             return View();
         }
 
@@ -24,6 +28,12 @@ namespace TesterBacalar_v3.Controllers
         public ViewResult bbb()
         {
             @ViewBag.Who = "bbb";
+            return View();
+        }
+
+        public ViewResult Question()
+        {
+            @ViewBag.Who = "tsdfgghfgjghjhjk";
             return View();
         }
     }
