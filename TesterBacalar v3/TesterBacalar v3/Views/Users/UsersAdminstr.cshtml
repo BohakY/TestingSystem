@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Додати нового користувача", "Create")
+        <button class="btn btn-default">@Html.ActionLink("Додати нового користувача", "Create")</button>
     </p>
     <table class="table">
         <tr>
@@ -39,7 +39,37 @@
         </tr>
 
         @foreach (var item in Model)
+    {
+        if (item.user_id_ == 1)
         {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_id_)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.is_admin)
+                </td>
+                <td>
+                    @Html.ActionLink("Детальна інформація", "Details", new { id = item.user_id_ }) |
+                    @Html.ActionLink("Редагувати", "Edit", new { id = item.user_id_ })
+                </td>
+                </tr>
+                }
+
+                if (item.user_id_ != 1)
+                {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.user_id_)
@@ -65,7 +95,9 @@
                     @Html.ActionLink("Видалити", "Delete", new { id = item.user_id_ })
                 </td>
             </tr>
-        }
+            }
 
-    </table>
+            }
+
+        </table>
 </body>
