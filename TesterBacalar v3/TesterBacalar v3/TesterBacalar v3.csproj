@@ -266,8 +266,8 @@
     <Content Include="Views\Users\UsersAdminstr.cshtml" />
     <Content Include="Views\Tester\testerView.cshtml" />
     <Content Include="Views\Tester\bbb.cshtml" />
-    <Content Include="Views\Admin\qwerty.cshtml" />
     <Content Include="Views\Tester\Question.cshtml" />
+    <Content Include="Views\Admin\TesterAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

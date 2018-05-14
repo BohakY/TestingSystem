@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,11 +23,10 @@ namespace TesterBacalar_v3.Controllers
 
         public ViewResult UserAdminstr()
         {
-            @ViewBag.Who = "Тут мають бути користувачі";
             return View();
         }
 
-        public ViewResult qwerty()
+        public ViewResult TesterAdmin()
         {
             return View();
         }
