@@ -19,11 +19,6 @@ namespace TesterBacalar_v3.Controllers
             return View();
         }
 
-        public ViewResult testerView()
-        {
-            @ViewBag.Who = "testerV 222";
-            return View();
-        }
 
         public ViewResult bbb()
         {
@@ -33,7 +28,9 @@ namespace TesterBacalar_v3.Controllers
 
         public ViewResult Question()
         {
-            @ViewBag.Who = "tsdfgghfgjghjhjk";
+            var q = db.Questions.ToList();
+            @ViewBag.Questions = q;
+
             return View();
         }
     }
