@@ -25,11 +25,15 @@ namespace TesterBacalar_v3.Controllers
             @ViewBag.Who = "bbb";
             return View();
         }
-
+       
         public ViewResult Question()
         {
+
             var q = db.Questions.ToList();
             @ViewBag.Questions = q;
+
+            var a = db.Answers.ToList();
+            @ViewBag.Answers = a;
 
             return View();
         }

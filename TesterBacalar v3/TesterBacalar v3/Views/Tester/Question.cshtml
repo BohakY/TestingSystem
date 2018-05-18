@@ -9,8 +9,20 @@
     <tr>
         <th>Іd </th>
         <th>Назва</th>
-        
 
+        @Html.RadioButton("Gender", "Male")
+        @Html.RadioButton("Gender", "Female")
+
+
+
+        @foreach (TesterBacalar_v3.Answers a in ViewBag.Answers)
+    {
+        @model Dictionary<string, string>
+        @Html.TextBox("XYZ", @Model["XYZ"])
+
+        @Html.RadioButtonFor(m => m.a, "Yes") @:Yes
+        @Html.RadioButtonFor(m => m.a, "No") @:No
+}
 
     </tr>
 
