@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "testerViewsssssssssssssssssssssss";
+}
+
+<h2>testerView</h2>
+@ViewBag.Who
+<table class="table">
+
+    <tr>
+        <th>Іd </th>
+        <th>Назва</th>
+
+        @Html.RadioButton("Gender", "Male")
+        @Html.RadioButton("Gender", "Female")
+
+
+    </tr>
+
+    @foreach (TesterBacalar_v3.Questions b in ViewBag.Questions)
+    {
+        <tr>
+            <td data-label="Іd Користувача"><p>@b.question_id</p></td>
+            <td><p>@b.question_text</p></td>
+            
+            <
+
+            <td>
+                <button class="btn btn-default">@Html.ActionLink("Відповісти", "Question", "Tester", null, new { @class = "roundedButton" }) </button>
+            </td>
+        </tr>
+    }
+</table>
+
