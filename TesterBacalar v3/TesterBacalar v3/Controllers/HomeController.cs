@@ -19,7 +19,8 @@ namespace TesterBacalar_v3.Controllers
         [HttpPost]
         public ActionResult Index(User user)
         {
-                ObjectResult<int?> check = Tes.Check_User(user.NameUser, user.PassworsUser);
+            
+            ObjectResult<int?> check = Tes.Check_User(user.NameUser, user.PassworsUser);
                 int res = check.FirstOrDefault().GetValueOrDefault();
 
                 if (res == 2)
@@ -33,7 +34,7 @@ namespace TesterBacalar_v3.Controllers
                 else if (res == 1)
                 {
                     ViewBag.Error = "Логін або пароль введені неправильно!";
-                }          
+                }
 
             return View();
         }

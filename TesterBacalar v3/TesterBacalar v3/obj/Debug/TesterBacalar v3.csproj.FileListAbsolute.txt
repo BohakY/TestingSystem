@@ -154,7 +154,6 @@ C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.resources.dll
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csprojResolveAssemblyReference.cache
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CoreCompileInputs.cache
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.dll
 C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.pdb
@@ -212,3 +211,4 @@ C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\
 C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csproj.CopyComplete
 C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.dll
 C:\Users\yaros\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.pdb
+C:\Users\Filin life\source\repos\TestingSystem\TesterBacalar v3\TesterBacalar v3\obj\Debug\TesterBacalar v3.csprojResolveAssemblyReference.cache

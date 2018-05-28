@@ -149,6 +149,9 @@
     <FunctionImport Name="GetTableRezult" IsComposable="true" ReturnType="Collection(TesterBacalarWorkBDModel.GetTableRezult_Result)">
       <Parameter Name="temp" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="GetListSubject" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="temp" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetTableRezult_Result">
     <Property Type="Int32" Name="user_id_" Nullable="false" />

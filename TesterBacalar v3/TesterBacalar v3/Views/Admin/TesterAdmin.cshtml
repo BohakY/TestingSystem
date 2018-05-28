@@ -1,19 +1,62 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
     ViewBag.Title = "Tester Admin";
 }
 
-<!DOCTYPE html>
+@model TesterBacalar_v3.Models.User
 
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Tester Admin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/AdminPanelStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div> 
-        <p><h1>Привіт!</h1></p>
+    <div class="row">
+        <div class="form-horizontal">
+            @using (Html.BeginForm())
+            {
+            <div class="col-xs-12 col-md-12">
+
+                <div class="form-group">
+                    <label>Виберіть предмет для якого створюється тест</label>
+                    @try
+    {
+                <p>
+                    <select name="selectSubj" class="form-control" id="intfor">
+
+                        @foreach (var item in Model.DropDownList)
+        {
+                <option>@Html.DisplayFor(modelItem => item.Text)</option>
+}
+                    </select>
+                </p>
+}
+catch (Exception ex) { HttpContext.Current.Response.Redirect(HttpContext.Current.Request.Url.ToString()); }
+
+                    <p>@Html.ActionLink("Або добавте новий предмет", "TesterAdminInp")</p>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Введіть назву нового тесту</label>
+                    <p>
+                        <input type="text" name="named" id="intfor" class="form-control" />
+                    </p>
+                </div>
+                <div class="text-danger">
+                    @ViewBag.Error
+                </div>
+                <input type="submit" value="Створити" class="btn btn-default" />
+            </div>
+            }
+        </div>
     </div>
 </body>
 </html>

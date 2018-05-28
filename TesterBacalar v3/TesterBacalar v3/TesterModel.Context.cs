@@ -56,5 +56,15 @@ namespace TesterBacalar_v3
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<GetTableRezult_Result>("[TesterBacalarWorkBDEntities].[GetTableRezult](@temp)", tempParameter);
         }
+    
+        [DbFunction("TesterBacalarWorkBDEntities", "GetListSubject")]
+        public virtual IQueryable<string> GetListSubject(Nullable<int> temp)
+        {
+            var tempParameter = temp.HasValue ?
+                new ObjectParameter("temp", temp) :
+                new ObjectParameter("temp", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[TesterBacalarWorkBDEntities].[GetListSubject](@temp)", tempParameter);
+        }
     }
 }
