@@ -19,7 +19,6 @@ namespace TesterBacalar_v3
         public string answer_text { get; set; }
         public Nullable<bool> is_correct { get; set; }
         public Nullable<int> answer_score { get; set; }
-        public string image_link { get; set; }
     
         public virtual Questions Questions { get; set; }
     }

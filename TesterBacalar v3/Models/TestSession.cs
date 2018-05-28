@@ -12,6 +12,8 @@ namespace TesterBacalar_v3.Models
 
         public int CurrentQuestion { get; set; }
 
+        public Users CurrentUser { get; set; }
+
         public int Result { get; set; }
 
         public Tests CurrentTest { get; set; }

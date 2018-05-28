@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    @Styles.Render("~/Content/TesterStyle.css") <!-- Тут заміниш на свій файл стилю-->
+    @Styles.Render("~/Content/TesterStyle.css") 
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -21,7 +21,7 @@
                     <th>Іd </th>
                     <th>Назва</th>
                     <th>Предмет</th>
-                    
+
 
                 </tr>
 
@@ -32,15 +32,18 @@
                         <td><p>@b.test_name</p></td>
                         <td><p>@b.subject_name</p></td>
                         <
-                        
+
                         <td>
-                            <button class="btn btn-default">@Html.ActionLink("Пройти тест", "Question", "Tester", null, new { @class = "roundedButton" }) </button> 
+
+                            <button>@Html.ActionLink("Пройти тест", "RunTest", "Tester", new { testId = b.test_id, userId = TesterBacalar_v3.Models.SystemInfo.UserId }, null) </button>
                         </td>
                     </tr>
                 }
             </table>
         </div>
     </div>
+    @ViewBag.Id
+   
 </body>
 </html>
 

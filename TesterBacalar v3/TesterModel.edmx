@@ -14,7 +14,6 @@
           <Property Name="answer_text" Type="nvarchar" MaxLength="500" />
           <Property Name="is_correct" Type="bit" />
           <Property Name="answer_score" Type="int" />
-          <Property Name="image_link" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="LogTable">
           <Key>
@@ -176,7 +175,6 @@
           <Property Name="answer_text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="is_correct" Type="Boolean" />
           <Property Name="answer_score" Type="Int32" />
-          <Property Name="image_link" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Questions" Relationship="Self.answers_questions_id_key" FromRole="Answers" ToRole="Questions" />
         </EntityType>
         <EntityType Name="LogTable">
@@ -343,7 +341,6 @@
                 <ScalarProperty Name="answer_text" ColumnName="answer_text" />
                 <ScalarProperty Name="is_correct" ColumnName="is_correct" />
                 <ScalarProperty Name="answer_score" ColumnName="answer_score" />
-                <ScalarProperty Name="image_link" ColumnName="image_link" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

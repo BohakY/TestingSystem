@@ -13,16 +13,18 @@ namespace TesterBacalar_v3.Controllers
         TesterBacalarWorkBDEntities db = new TesterBacalarWorkBDEntities();
         // GET: Tester
 
-        public RedirectToRouteResult RunTest(int testId)
+        public RedirectToRouteResult RunTest(int testId, int userId)
         {
             Guid testSessionId = Guid.NewGuid();
 
             Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
+            Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == userId);
 
             TestSession testSession = new TestSession
             {
                 Id = testSessionId,
                 CurrentQuestion = 0,
+                CurrentUser = currentUser,
                 Result = 0,
                 CurrentTest = currentTest
             };
@@ -39,15 +41,18 @@ namespace TesterBacalar_v3.Controllers
 
             Questions question = questions[session.CurrentQuestion];
 
+            
             //session.CurrentQuestion += 1;
 
             //ViewBag.SessionId = sessionId;
             ViewBag.Session = session;
 
+            
+
             return View(question);
         }
 
-        public RedirectToRouteResult CheckResult(Guid sessionId)
+        public RedirectToRouteResult CheckResult(Guid sessionId, string[] arr)
         {
             TestSession session = Session[sessionId.ToString()] as TestSession;
 
@@ -59,6 +64,7 @@ namespace TesterBacalar_v3.Controllers
 
         public ViewResult Tester()
         {
+            ViewBag.Id = SystemInfo.UserId;
             var table = db.Tests.ToList();
             @ViewBag.Tests = table;
 

@@ -10,28 +10,36 @@
 
 <div>@Model.question_text</div>
 
-@using (Html.BeginForm("CheckResult", "Tester",new { sessionId = ViewBag.Session.Id }))
+@using (Html.BeginForm("CheckResult", "Tester", new { sessionId = ViewBag.Session.Id }))
 {
+   
     if (Model.type == 1)
     {
         foreach (Answers answer in Model.Answers)
         {
             <div>
+                @Html.RadioButton("arr", answer.answer_text)
                 @Html.Label(answer.answer_text)
-                @Html.RadioButton(answer.answer_text, answer.answer_text);
+
+
             </div>
-            
+
         }
     }
     else if (Model.type == 2)
     {
         foreach (Answers answer in Model.Answers)
         {
-            @Html.CheckBox(answer.answer_text);
+            @Html.CheckBox("arr")
+            @Html.Label(answer.answer_text)
+
         }
     }
+    
+
 
     <input type="submit" value="Send" />
+    <button class="btn btn-default">@Html.ActionLink("Відповісти", "Question", "Tester", null, new { @class = "roundedButton" }) </button>
 }
 
 
