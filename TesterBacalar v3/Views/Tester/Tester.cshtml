@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/TesterStyle.css") 
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <h3>Привіт!</h3>
+    <h3>@ViewBag.Who</h3>
+    <div class="row">
+        <div class="col-xs-3 col-md-12">
+
+            <table class="table">
+
+                <tr>
+                    <th>Іd </th>
+                    <th>Назва</th>
+                    <th>Предмет</th>
+
+
+                </tr>
+
+                @foreach (TesterBacalar_v3.Tests b in ViewBag.Tests)
+                {
+                    <tr>
+                        <td data-label="Іd Користувача"><p>@b.test_id</p></td>
+                        <td><p>@b.test_name</p></td>
+                        <td><p>@b.subject_name</p></td>
+                        <
+
+                        <td>
+
+                            <button>@Html.ActionLink("Пройти тест", "RunTest", "Tester", new { testId = b.test_id, userId = TesterBacalar_v3.Models.SystemInfo.UserId }, null) </button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    @ViewBag.Id
+   
+</body>
+</html>
+
