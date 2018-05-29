@@ -65,16 +65,16 @@ namespace TesterBacalar_v3.Controllers
         [HttpPost]
         public ActionResult TesterAdmin(string named, string selectSubj)
         {
-                if (String.IsNullOrEmpty(named) == false)
-                {
-                    SystemInfo.SubjectName = selectSubj;
-                    SystemInfo.NameTestInSystem = named;
-                    return RedirectToAction("AddTest");
-                }
-                else
-                {
-                    @ViewBag.Error = "Введіть назву тесту!";
-                }
+            if (String.IsNullOrEmpty(named) == false)
+            {
+                SystemInfo.SubjectName = selectSubj;
+                SystemInfo.NameTestInSystem = named;
+                return RedirectToAction("AddTest");
+            }
+            else
+            {
+                @ViewBag.Error = "Введіть назву тесту!";
+            }
 
 
             return View();

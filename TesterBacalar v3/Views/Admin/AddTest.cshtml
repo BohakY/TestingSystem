@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Add Test";
+}
+
+@model TesterBacalar_v3.Models.SystemInfo
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/AdminPanelStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <header>
+        <h5>Створення нового тесту</h5>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-4 col-md-4">
+            <div class="form-group">
+                Назва нового тесту: @ViewBag.NameTest
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <div class="form-group">
+                Назва предмету: @ViewBag.sub
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <div class="form-group">
+                Номер запитання в тесті: @ViewBag.NumberQuest
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <label>Введіть запитання:</label>
+            <input />
+        </div>
+    </div>
+
+</body>
+</html>
+
+

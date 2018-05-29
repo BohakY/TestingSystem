@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Tester Admin";
+}
+
+@model TesterBacalar_v3.Models.User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/AdminPanelStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="row">
+        <div class="form-horizontal">
+            @using (Html.BeginForm())
+            {
+                <div class="col-xs-12 col-md-12">
+
+                    <div class="form-group">
+                        <label>Введіть назву нового предмету</label>
+                        <p>
+                            <input type="text" name="selectSubj" id="intfor" class="form-control" />
+                        </p>
+
+                        <p>@Html.ActionLink("Повернутися до вибору наявних предметів", "TesterAdmin")</p>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Введіть назву нового тесту</label>
+                        <p>
+                            <input type="text" name="named" id="intfor" class="form-control" />
+                        </p>
+                    </div>
+                    <p><input type="submit" value="Створити" class="btn btn-default" /></p>
+                </div>
+                <div class="text-danger">
+                    @ViewBag.Error
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
+

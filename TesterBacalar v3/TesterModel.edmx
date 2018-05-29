@@ -119,6 +119,16 @@
           <Parameter Name="login" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetListSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="temp" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="subject_name" Type="nvarchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="GetTableRezult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="temp" Type="int" Mode="In" />
           <ReturnType>
@@ -314,6 +324,9 @@
           <FunctionImport Name="GetTableRezult" IsComposable="true" ReturnType="Collection(TesterBacalarWorkBDModel.GetTableRezult_Result)">
           <Parameter Name="temp" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetListSubject" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="temp" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetTableRezult_Result">
           <Property Type="Int32" Name="user_id_" Nullable="false" />
@@ -418,6 +431,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListSubject" FunctionName="Хранилище TesterBacalarWorkBDModel.GetListSubject" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

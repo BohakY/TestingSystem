@@ -9,8 +9,6 @@ namespace TesterBacalar_v3.Models
 {
     public class User
     {
-        TesterBacalarWorkBDEntities Tes = new TesterBacalarWorkBDEntities();
-
         [Required(ErrorMessage = "Введіть логін!")]
         public string NameUser { get; set; }
 
@@ -18,6 +16,5 @@ namespace TesterBacalar_v3.Models
         public string PassworsUser { get; set; }
 
         public SelectList DropDownList { get; set; }
-        
     }
 }

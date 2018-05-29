@@ -22,39 +22,39 @@
         <div class="form-horizontal">
             @using (Html.BeginForm())
             {
-            <div class="col-xs-12 col-md-12">
+                <div class="col-xs-12 col-md-12">
 
-                <div class="form-group">
-                    <label>Виберіть предмет для якого створюється тест</label>
-                    @try
-    {
-                <p>
-                    <select name="selectSubj" class="form-control" id="intfor">
+                    <div class="form-group">
+                        <label>Виберіть предмет для якого створюється тест</label>
+                        @try
+                        {
+                            <p>
+                                <select name="selectSubj" class="form-control" id="intfor">
 
-                        @foreach (var item in Model.DropDownList)
-        {
-                <option>@Html.DisplayFor(modelItem => item.Text)</option>
-}
-                    </select>
-                </p>
-}
-catch (Exception ex) { HttpContext.Current.Response.Redirect(HttpContext.Current.Request.Url.ToString()); }
+                                    @foreach (var item in Model.DropDownList)
+                                    {
+                                        <option>@Html.DisplayFor(modelItem => item.Text)</option>
+                                    }
+                                </select>
+                            </p>
+                        }
+                        catch (Exception ex) { HttpContext.Current.Response.Redirect(HttpContext.Current.Request.Url.ToString()); }
 
-                    <p>@Html.ActionLink("Або добавте новий предмет", "TesterAdminInp")</p>
+                        <p>@Html.ActionLink("Або добавте новий предмет", "TesterAdminInp")</p>
 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Введіть назву нового тесту</label>
+                        <p>
+                            <input type="text" name="named" id="intfor" class="form-control" />
+                        </p>
+                    </div>
+                    <div class="text-danger">
+                        @ViewBag.Error
+                    </div>
+                    <input type="submit" value="Створити" class="btn btn-default" />
                 </div>
-
-                <div class="form-group">
-                    <label>Введіть назву нового тесту</label>
-                    <p>
-                        <input type="text" name="named" id="intfor" class="form-control" />
-                    </p>
-                </div>
-                <div class="text-danger">
-                    @ViewBag.Error
-                </div>
-                <input type="submit" value="Створити" class="btn btn-default" />
-            </div>
             }
         </div>
     </div>
