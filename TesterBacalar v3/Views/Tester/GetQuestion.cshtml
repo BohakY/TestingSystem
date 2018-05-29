@@ -1,18 +1,22 @@
-﻿@{
+﻿@Styles.Render("~/Content/QuestionStyle.css")
+@Scripts.Render("~/bundles/modernizr")
+@{
+    /**/
+
     ViewBag.Title = "Question " + ViewBag.Session.CurrentQuestion;
 }
 
 @model Questions
 
 <h2>
-    Some question
+    @ViewBag.TestName
 </h2>
 
 <div>@Model.question_text</div>
 
 @using (Html.BeginForm("CheckResult", "Tester", new { sessionId = ViewBag.Session.Id }))
 {
-   
+
     if (Model.type == 1)
     {
         foreach (Answers answer in Model.Answers)
@@ -20,6 +24,7 @@
             <div>
                 @Html.RadioButton("arr", answer.answer_text)
                 @Html.Label(answer.answer_text)
+
 
 
             </div>
@@ -30,12 +35,16 @@
     {
         foreach (Answers answer in Model.Answers)
         {
-            @Html.CheckBox("arr")
-            @Html.Label(answer.answer_text)
+            <div class="form-group">
+                <div class="SinglecheckBox">
+                    @Html.CheckBox("arr",answer.answer_text)
+                    @Html.Label(answer.answer_text)
+                </div>
+            </div>
 
         }
     }
-    
+
 
 
     <input type="submit" value="Send" />
