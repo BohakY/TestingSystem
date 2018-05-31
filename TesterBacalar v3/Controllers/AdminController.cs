@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TesterBacalar_v3.Models;
+using System.IO;
 
 namespace TesterBacalar_v3.Controllers
 {
@@ -61,32 +62,181 @@ namespace TesterBacalar_v3.Controllers
             return View();
         }
 
+        public ViewResult Error()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public ActionResult TesterAdmin(string named, string selectSubj)
         {
             if (String.IsNullOrEmpty(named) == false)
             {
-                SystemInfo.SubjectName = selectSubj;
-                SystemInfo.NameTestInSystem = named;
-                return RedirectToAction("AddTest");
+                var table = from Tests in Tes.Tests
+                            select new
+                            {
+                                NameTest = Tests.test_name
+                            };
+                var name = table.ToList();
+                for (int i = 0; i < name.Count; i++)
+                {
+                    if(named == name[i].NameTest)
+                    {
+                        return RedirectToAction("Error");
+                    }
+                    else
+                    {
+                        SystemInfo.SubjectName = selectSubj;
+                        SystemInfo.NameTestInSystem = named;
+                        return RedirectToAction("AddTest");
+                    }
+                }
             }
             else
             {
                 @ViewBag.Error = "Введіть назву тесту!";
             }
-
-
             return View();
         }
 
+
         public ViewResult AddTest()
         {
+            SystemInfo.NumberQuest = 1;
             ViewBag.NameTest = SystemInfo.NameTestInSystem;
             ViewBag.sub = SystemInfo.SubjectName;
-            int num = SystemInfo.NumberQuest;
-            num++;
-            ViewBag.NumberQuest = num;
+            ViewBag.NumberQuest = SystemInfo.NumberQuest;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddTest(string action, AddTestModel adt, string quest, 
+            string Answ_1, string Answ_2, string Answ_3, string Answ_4, string Answ_5,
+            int score1, int score2, int score3, int score4, int score5)
+        {
+            if (action == "Добавити")
+            {
+                if (String.IsNullOrEmpty(quest) == true)
+                {
+                    ViewBag.NameTest = SystemInfo.NameTestInSystem;
+                    ViewBag.sub = SystemInfo.SubjectName;
+                    ViewBag.NumberQuest = SystemInfo.NumberQuest;
+                    @ViewBag.Error = "Введіть запитання!";
+                }
+                else
+                {
+                    if (String.IsNullOrEmpty(Answ_1) == true && String.IsNullOrEmpty(Answ_2) == true)
+                    {
+                        ViewBag.NameTest = SystemInfo.NameTestInSystem;
+                        ViewBag.sub = SystemInfo.SubjectName;
+                        ViewBag.NumberQuest = SystemInfo.NumberQuest;
+                        @ViewBag.Error = "Введіть хоча б дві відповіді!";
+                    }
+                    else
+                    {
+
+                        if (adt.Answ1Check == false &&
+                    adt.Answ2Check == false &&
+                    adt.Answ3Check == false &&
+                    adt.Answ4Check == false &&
+                    adt.Answ5Check == false)
+                        {
+                            ViewBag.NameTest = SystemInfo.NameTestInSystem;
+                            ViewBag.sub = SystemInfo.SubjectName;
+                            ViewBag.NumberQuest = SystemInfo.NumberQuest;
+                            ViewBag.ErrorCheck = "Виберіть хоча б одну правильну відповідь!";
+                        }
+                        else
+                        {
+
+                            if(SystemInfo.NumberQuest == 1)
+                            {
+                                Tes.AddNewNameTest(SystemInfo.NameTestInSystem, SystemInfo.SubjectName);
+                            }
+
+                            int lenght = 2;
+
+                            if(String.IsNullOrEmpty(Answ_3) == false)
+                            {
+                                lenght++;
+                                if(String.IsNullOrEmpty(Answ_4) == false)
+                                {
+                                    lenght++;
+                                    if (String.IsNullOrEmpty(Answ_5) == false)
+                                    {
+                                        lenght++;
+                                    }
+                                }
+                            }
+
+                            string[] anser = new string[lenght];
+                            bool[] ifcorect = new bool[lenght];
+                            int[] score = new int[lenght];
+
+                            anser[0] = Answ_1;
+                            ifcorect[0] = adt.Answ1Check;
+                            score[0] = score1;
+                            anser[1] = Answ_2;
+                            ifcorect[1] = adt.Answ2Check;
+                            score[1] = score2;
+
+                            if (lenght == 3)
+                            {
+                                anser[2] = Answ_3;
+                                ifcorect[2] = adt.Answ3Check;
+                                score[2] = score3;
+                                if (lenght == 4)
+                                {
+                                    anser[3] = Answ_4;
+                                    ifcorect[3] = adt.Answ4Check;
+                                    score[3] = score4;
+                                    if (lenght == 5)
+                                    {
+                                        anser[4] = Answ_5;
+                                        ifcorect[4] = adt.Answ5Check;
+                                        score[4] = score5;
+                                    }
+                                }
+                            }
+
+                            int cir = 0;
+                            int type = 1;
+                            for(int i = 0; i < lenght; i++)
+                            {
+                                if(ifcorect[i] == true)
+                                {
+                                    cir++;
+                                }
+                                if(cir >= 2)
+                                {
+                                    type = 2;
+                                    break;
+                                }
+                            }
+
+                            Tes.AddNewQuest(SystemInfo.NameTestInSystem, quest, type);
+
+                            for(int i = 0; i < lenght; i++)
+                            {
+                                Tes.AddNewAnswerd(anser[i], ifcorect[i], score[i]);
+                            }
+
+                            SystemInfo.NumberQuest++;
+                            ViewBag.NameTest = SystemInfo.NameTestInSystem;
+                            ViewBag.sub = SystemInfo.SubjectName;
+                            ViewBag.NumberQuest = SystemInfo.NumberQuest;                         
+                        }
+                    }
+                }
+            }else if(action == "Закінчити створення")
+            {
+                SystemInfo.NumberQuest = 1;
+                SystemInfo.NameTestInSystem = null;
+                SystemInfo.SubjectName = null;
+                return RedirectToAction("TestMenu");
+            }
+ 
             return View();
         }
     }

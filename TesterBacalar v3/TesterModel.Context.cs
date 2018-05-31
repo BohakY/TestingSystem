@@ -66,5 +66,52 @@ namespace TesterBacalar_v3
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[TesterBacalarWorkBDEntities].[GetListSubject](@temp)", tempParameter);
         }
+    
+        public virtual int AddNewAnswerd(string ansewText, Nullable<bool> isCorrect, Nullable<int> answerScore)
+        {
+            var ansewTextParameter = ansewText != null ?
+                new ObjectParameter("ansewText", ansewText) :
+                new ObjectParameter("ansewText", typeof(string));
+    
+            var isCorrectParameter = isCorrect.HasValue ?
+                new ObjectParameter("isCorrect", isCorrect) :
+                new ObjectParameter("isCorrect", typeof(bool));
+    
+            var answerScoreParameter = answerScore.HasValue ?
+                new ObjectParameter("answerScore", answerScore) :
+                new ObjectParameter("answerScore", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewAnswerd", ansewTextParameter, isCorrectParameter, answerScoreParameter);
+        }
+    
+        public virtual int AddNewNameTest(string newName, string subjName)
+        {
+            var newNameParameter = newName != null ?
+                new ObjectParameter("newName", newName) :
+                new ObjectParameter("newName", typeof(string));
+    
+            var subjNameParameter = subjName != null ?
+                new ObjectParameter("subjName", subjName) :
+                new ObjectParameter("subjName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewNameTest", newNameParameter, subjNameParameter);
+        }
+    
+        public virtual int AddNewQuest(string nameTest, string textQuest, Nullable<int> type)
+        {
+            var nameTestParameter = nameTest != null ?
+                new ObjectParameter("nameTest", nameTest) :
+                new ObjectParameter("nameTest", typeof(string));
+    
+            var textQuestParameter = textQuest != null ?
+                new ObjectParameter("textQuest", textQuest) :
+                new ObjectParameter("textQuest", typeof(string));
+    
+            var typeParameter = type.HasValue ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewQuest", nameTestParameter, textQuestParameter, typeParameter);
+        }
     }
 }

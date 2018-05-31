@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,24 +29,25 @@ namespace TesterBacalar_v3.Controllers
                 CurrentTest = currentTest
             };
 
-            //string testName = currentTest.test_name.ToString();
-            
-
             Session[testSessionId.ToString()] = testSession;
 
-            return RedirectToAction("GetQuestion", new { sessionId = testSessionId } );
+            return RedirectToAction("GetQuestion", new { sessionId = testSessionId });
         }
 
         public ViewResult GetQuestion(Guid sessionId)
         {
             TestSession session = Session[sessionId.ToString()] as TestSession;
             List<Questions> questions = session.CurrentTest.Questions.ToList();
-            
+
             Questions question = questions[session.CurrentQuestion];
 
+            
+            //session.CurrentQuestion += 1;
+
+            //ViewBag.SessionId = sessionId;
             ViewBag.Session = session;
 
-          
+            
 
             return View(question);
         }
@@ -55,53 +55,18 @@ namespace TesterBacalar_v3.Controllers
         public RedirectToRouteResult CheckResult(Guid sessionId, string[] arr)
         {
             TestSession session = Session[sessionId.ToString()] as TestSession;
-            List<Questions> questions = session.CurrentTest.Questions.ToList();
 
-            int currentTest = session.CurrentTest.test_id;
-
-            int questionsCount = questions.Count();
-            int currentQuestion = session.CurrentQuestion;
-
-            if (currentQuestion >= questionsCount - 1)
-            {
-                //Rezult currentResult { user_id}
-                //db.Rezult.Add
-
-                //var result = db.Set<Rezult>();
-                //result.Add(new Rezult { user_id_ = SystemInfo.UserId , test_id = currentTest, points = 5, total_score = 10, data_time = DateTime.Now};
-                //db.SaveChanges();
-
-
-
-                //Rezult currentResult = new Rezult { user_id_ = SystemInfo.UserId, test_id = currentTest, points = 5, total_score = 10, data_time = DateTime.Now };
-                //db.Rezult.Add(currentResult);
-                //db.SaveChanges();
-
-                return RedirectToAction("Tester");
-            }
             session.CurrentQuestion += 1;
             Session[sessionId.ToString()] = session;
 
             return RedirectToAction("GetQuestion", new { sessionId });
-
         }
 
         public ViewResult Tester()
         {
-            
-            ViewBag.Nameuser = SystemInfo.UserNameInSystem;
             ViewBag.Id = SystemInfo.UserId;
             var table = db.Tests.ToList();
             @ViewBag.Tests = table;
-      
-            string firstName = db.Users.Find(SystemInfo.UserId).first_name.ToString();
-            ViewBag.FirstName = firstName;
-
-            string lastName = db.Users.Find(SystemInfo.UserId).last_name.ToString();
-            ViewBag.LastName = lastName;
-
-
-           
 
             return View();
         }
