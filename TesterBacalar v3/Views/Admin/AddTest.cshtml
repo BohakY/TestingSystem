@@ -3,7 +3,7 @@
     ViewBag.Title = "Add Test";
 }
 
-@model TesterBacalar_v3.Models.SystemInfo
+@model TesterBacalar_v3.Models.AddTestModel
 
 <!DOCTYPE html>
 
@@ -13,40 +13,203 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    @Styles.Render("~/Content/AdminPanelStyle.css")
+    @Styles.Render("~/Content/AdminStyle.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 
     <header>
-        <h5>Створення нового тесту</h5>
+        <div class="form-group">
+            <h3>Створення нового тесту</h3>
+        </div>
     </header>
 
     <div class="row">
         <div class="col-xs-4 col-md-4">
             <div class="form-group">
-                Назва нового тесту: @ViewBag.NameTest
+                <h4>Назва нового тесту: @ViewBag.NameTest</h4>
             </div>
         </div>
         <div class="col-xs-4 col-md-4">
             <div class="form-group">
-                Назва предмету: @ViewBag.sub
+                <h4>Назва предмету: @ViewBag.sub</h4>
             </div>
         </div>
         <div class="col-xs-4 col-md-4">
             <div class="form-group">
-                Номер запитання в тесті: @ViewBag.NumberQuest
+                <h4>Номер запитання в тесті: <div id="num">@ViewBag.NumberQuest</div></h4>
             </div>
         </div>
     </div>
+    <br />
 
-    <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <label>Введіть запитання:</label>
-            <input />
+    <div class="form-horizontal">
+        @using (Html.BeginForm())
+    {
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <div class="text-danger">
+                        <h4>@ViewBag.Error</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <label>Введіть запитання:</label>
+                    <textarea type="text" name="quest" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <div class="form-group">
+                    <label>Введіть першу відповідь:</label>
+                    <input type="text" name="Answ_1" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <label>Позначте правильні відповіді:</label>
+                    <div class="che">
+                        @Html.CheckBoxFor(m => m.Answ1Check)
+                        <div class="text-danger">
+                            <br />
+                            <h6>@ViewBag.ErrorCheck</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <label>Введіть бали за відповіді:</label>
+                    <div class="scope1">
+                        <input type="number" name="score1" value="1" id="sp" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <div class="form-group">
+                    <label>Введіть другу відповідь:</label>
+                    <input type="text" name="Answ_2" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="che2">
+                        @Html.CheckBoxFor(m => m.Answ2Check)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="scope2">
+                        <input type="number" name="score2" value="1" id="sp1" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <div class="form-group">
+                    <label>Введіть третю відповідь:</label>
+                    <input type="text" name="Answ_3" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="che2">
+                        @Html.CheckBoxFor(m => m.Answ3Check)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="scope2">
+                        <input type="number" name="score3" value="1" id="sp1" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <div class="form-group">
+                    <label>Введіть четверту відповідь:</label>
+                    <input type="text" name="Answ_4" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="che2">
+                        @Html.CheckBoxFor(m => m.Answ4Check)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="scope2">
+                        <input type="number" name="score4" value="1" id="sp1" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <div class="form-group">
+                    <label>Введіть п'яту відповідь:</label>
+                    <input type="text" name="Answ_5" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="che2">
+                        @Html.CheckBoxFor(m => m.Answ5Check)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <div class="form-group">
+                    <div class="scope2">
+                        <input type="number" name="score5" value="1" id="sp1" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <input type="submit" name="action" value="Добавити" id="addbut" class="btn btn-success" />
+                    <input type="submit" name="action" value="Закінчити створення" id="endbut" class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+}
+    </div>
+            <script src="~/Scripts/admin-script/addTest.js"></script>
 </body>
 </html>
 

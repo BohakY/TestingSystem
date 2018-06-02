@@ -40,7 +40,6 @@ namespace TesterBacalar_v3.Controllers
 
             if (res == 2)
             {
-                SystemInfo.UserNameInSystem = user.NameUser;
                 return RedirectToAction("Tester", "Tester");
             }
             else if (res == 3)
