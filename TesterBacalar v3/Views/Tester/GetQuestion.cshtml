@@ -12,7 +12,11 @@
     @ViewBag.TestName
 </h2>
 
-<div>@Model.question_text</div>
+<h2>
+    @Model.question_text
+</h2>
+
+
 
 @using (Html.BeginForm("CheckResult", "Tester", new { sessionId = ViewBag.Session.Id }))
 {
@@ -21,12 +25,23 @@
     {
         foreach (Answers answer in Model.Answers)
         {
-            <div>
-                @Html.RadioButton("arr", answer.answer_text)
-                @Html.Label(answer.answer_text)
+            <hr />
+            <div class="row">
+                <div class="col-xs-1 col-md-1">
+                    <div class="form-group">
+                        <div class="SinglecheckBox">
+                            <div class="CheckStyle">
+                                @Html.RadioButton("arr", answer.answer_text)
 
-
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 col-md-10">
+                    <div class="form-group">
+                        @Html.Label(answer.answer_text)
+                    </div>
+                </div>
             </div>
 
         }
@@ -35,10 +50,22 @@
     {
         foreach (Answers answer in Model.Answers)
         {
-            <div class="form-group">
-                <div class="SinglecheckBox">
-                    @Html.CheckBox("arr",answer.answer_text)
-                    @Html.Label(answer.answer_text)
+            <hr />
+            <div class="row">
+                <div class="col-xs-1 col-md-1">
+                    <div class="form-group">
+                        <div class="SinglecheckBox">
+                            <div class="CheckStyle">
+                                @Html.CheckBox("arr", answer.answer_text)
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 col-md-10">
+                    <div class="form-group">
+                        @Html.Label(answer.answer_text)
+                    </div>
                 </div>
             </div>
 
@@ -48,7 +75,8 @@
 
 
     <input type="submit" value="Send" />
-    <button class="btn btn-default">@Html.ActionLink("Відповісти", "Question", "Tester", null, new { @class = "roundedButton" }) </button>
+    <input type="submit" name="action" value="fuck" class="btn btn-danger" />
+    <input type="submit" name="action" value="fre" class="btn btn-success" />
 }
 
 

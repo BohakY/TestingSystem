@@ -52,8 +52,13 @@ namespace TesterBacalar_v3.Controllers
             return View(question);
         }
 
-        public RedirectToRouteResult CheckResult(Guid sessionId, string[] arr)
+        public RedirectToRouteResult CheckResult(Guid sessionId, string[] arr, string action)
         {
+            //if(action == "fre")
+            //{
+            //    return RedirectToAction("GetQuestion");
+            //}
+
             TestSession session = Session[sessionId.ToString()] as TestSession;
             List<Questions> questions = session.CurrentTest.Questions.ToList();
 
@@ -64,20 +69,20 @@ namespace TesterBacalar_v3.Controllers
 
             if (currentQuestion >= questionsCount - 1)
             {
-                //Rezult currentResult { user_id}
-                //db.Rezult.Add
+                Rezult currentRezult = new Rezult
+                {
+                    user_id_ = SystemInfo.UserId,
+                    test_id = currentTest,
+                    points = 7,
+                    total_score = 18,
+                    data_time = DateTime.Now
+                };
 
-                //var result = db.Set<Rezult>();
-                //result.Add(new Rezult { user_id_ = SystemInfo.UserId , test_id = currentTest, points = 5, total_score = 10, data_time = DateTime.Now};
-                //db.SaveChanges();
+                db.Rezult.Add(currentRezult);
+                db.SaveChanges();
+                
 
-
-
-                //Rezult currentResult = new Rezult { user_id_ = SystemInfo.UserId, test_id = currentTest, points = 5, total_score = 10, data_time = DateTime.Now };
-                //db.Rezult.Add(currentResult);
-                //db.SaveChanges();
-
-                return RedirectToAction("Tester");
+                return RedirectToAction("ResultView");
             }
             session.CurrentQuestion += 1;
             Session[sessionId.ToString()] = session;
@@ -100,8 +105,24 @@ namespace TesterBacalar_v3.Controllers
             string lastName = db.Users.Find(SystemInfo.UserId).last_name.ToString();
             ViewBag.LastName = lastName;
 
+            return View();
+        }
 
-           
+        public ViewResult ResultView()
+        {
+            //Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
+            //Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == SystemInfo.UserId);
+
+            string currentUserFirstName = db.Users.Where(u => u.user_id_ == SystemInfo.UserId).FirstOrDefault().first_name;
+            string currentUserSurname = db.Users.Where(u => u.user_id_ == SystemInfo.UserId).FirstOrDefault().last_name;
+
+            ViewBag.currentUserSurname = currentUserSurname;
+            ViewBag.currentUserFirstName = currentUserFirstName;
+
+            string testName = 
+            ViewBag.testName = testName;
+
+            //int currentPoints = 
 
             return View();
         }
