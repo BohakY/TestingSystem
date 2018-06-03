@@ -119,8 +119,8 @@ namespace TesterBacalar_v3.Controllers
             ViewBag.currentUserSurname = currentUserSurname;
             ViewBag.currentUserFirstName = currentUserFirstName;
 
-            string testName = 
-            ViewBag.testName = testName;
+            //string testName = 
+            //ViewBag.testName = testName;
 
             //int currentPoints = 
 

@@ -115,20 +115,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="AddNewAnswerd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ansewText" Type="varchar" Mode="In" />
-          <Parameter Name="isCorrect" Type="bit" Mode="In" />
-          <Parameter Name="answerScore" Type="int" Mode="In" />
-        </Function>
-        <Function Name="AddNewNameTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="newName" Type="varchar" Mode="In" />
-          <Parameter Name="subjName" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="AddNewQuest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="nameTest" Type="varchar" Mode="In" />
-          <Parameter Name="textQuest" Type="varchar" Mode="In" />
-          <Parameter Name="type" Type="int" Mode="In" />
-        </Function>
         <Function Name="Check_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
@@ -460,10 +446,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetListSubject" FunctionName="Хранилище TesterBacalarWorkBDModel.GetListSubject" />
-          <FunctionImportMapping FunctionImportName="AddNewAnswerd" FunctionName="Хранилище TesterBacalarWorkBDModel.AddNewAnswerd" />
-          <FunctionImportMapping FunctionImportName="AddNewNameTest" FunctionName="Хранилище TesterBacalarWorkBDModel.AddNewNameTest" />
-          <FunctionImportMapping FunctionImportName="AddNewQuest" FunctionName="Хранилище TesterBacalarWorkBDModel.AddNewQuest" />
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
