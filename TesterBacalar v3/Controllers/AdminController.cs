@@ -51,6 +51,21 @@ namespace TesterBacalar_v3.Controllers
         {
             if (String.IsNullOrEmpty(named) == false && String.IsNullOrEmpty(selectSubj) == false)
             {
+                var table = from Tests in Tes.Tests
+                            select new
+                            {
+                                NameTest = Tests.test_name
+                            };
+                var name = table.ToList();
+
+                for (int i = 0; i < name.Count; i++)
+                {
+                    if (named == name[i].NameTest)
+                    {
+                        return RedirectToAction("Error");
+                    }
+                }
+
                 SystemInfo.SubjectName = selectSubj;
                 SystemInfo.NameTestInSystem = named;
                 return RedirectToAction("AddTest");
@@ -79,19 +94,18 @@ namespace TesterBacalar_v3.Controllers
                                 NameTest = Tests.test_name
                             };
                 var name = table.ToList();
+
                 for (int i = 0; i < name.Count; i++)
                 {
                     if(named == name[i].NameTest)
                     {
                         return RedirectToAction("Error");
-                    }
-                    else
-                    {
-                        SystemInfo.SubjectName = selectSubj;
-                        SystemInfo.NameTestInSystem = named;
-                        return RedirectToAction("AddTest");
-                    }
+                    } 
                 }
+                SystemInfo.SubjectName = selectSubj;
+                SystemInfo.NameTestInSystem = named;
+                return RedirectToAction("AddTest");
+
             }
             else
             {
@@ -152,7 +166,13 @@ namespace TesterBacalar_v3.Controllers
 
                             if(SystemInfo.NumberQuest == 1)
                             {
-                                Tes.AddNewNameTest(SystemInfo.NameTestInSystem, SystemInfo.SubjectName);
+                                Tests newT = new Tests
+                                {
+                                    test_name = SystemInfo.NameTestInSystem,
+                                    subject_name = SystemInfo.SubjectName
+                                };
+                                Tes.Tests.Add(newT);
+                                Tes.SaveChanges();
                             }
 
                             int lenght = 2;
@@ -181,12 +201,12 @@ namespace TesterBacalar_v3.Controllers
                             ifcorect[1] = adt.Answ2Check;
                             score[1] = score2;
 
-                            if (lenght == 3)
+                            if (lenght >= 3)
                             {
                                 anser[2] = Answ_3;
                                 ifcorect[2] = adt.Answ3Check;
                                 score[2] = score3;
-                                if (lenght == 4)
+                                if (lenght >= 4)
                                 {
                                     anser[3] = Answ_4;
                                     ifcorect[3] = adt.Answ4Check;
@@ -211,15 +231,56 @@ namespace TesterBacalar_v3.Controllers
                                 if(cir >= 2)
                                 {
                                     type = 2;
-                                    break;
                                 }
                             }
 
-                            Tes.AddNewQuest(SystemInfo.NameTestInSystem, quest, type);
+                            int idTest = Tes.Tests.Where(c => c.test_name == SystemInfo.NameTestInSystem).
+                                Select(c => c.test_id).FirstOrDefault();
+
+                            Questions newQues = new Questions
+                            {
+                                test_id = idTest,
+                                question_text = quest,
+                                type = type
+                            };
+
+                            Tes.Questions.Add(newQues);
+                            Tes.SaveChanges();
+
+                            for (int i = 0; i < lenght; i++)
+                            {
+                                if(ifcorect[i] == false)
+                                {
+                                    score[i] = 0;
+                                }
+                            }
+
+                            var table = from Questions in Tes.Questions
+                                        select new
+                                        {
+                                            idQest = Questions.question_id
+                                        };
+                            var idmas = table.ToList();
+                            int idQest = 0;
+                            for (int i = 0; i < idmas.Count; i++)
+                            {
+                                if(idmas[i].idQest > idQest)
+                                {
+                                    idQest = idmas[i].idQest;
+                                }
+                            }
 
                             for(int i = 0; i < lenght; i++)
                             {
-                                Tes.AddNewAnswerd(anser[i], ifcorect[i], score[i]);
+                                Answers newAns = new Answers
+                                {
+                                    question_id = idQest,
+                                    answer_text = anser[i],
+                                    is_correct = ifcorect[i],
+                                    answer_score = score[i]
+                                };
+                                Tes.Answers.Add(newAns);
+                                Tes.SaveChanges();
                             }
 
                             SystemInfo.NumberQuest++;

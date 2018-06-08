@@ -136,8 +136,13 @@ namespace TesterBacalar_v3.Controllers
             ViewBag.currentUserSurname = currentUserSurname;
             ViewBag.currentUserFirstName = currentUserFirstName;
 
+<<<<<<< HEAD
             string currentTest = db.Tests.Where(t => t.test_id == currentResult.test_id).FirstOrDefault().test_name;
             ViewBag.currentTest = currentTest;
+=======
+            //string testName = 
+            //ViewBag.testName = testName;
+>>>>>>> fde36d39b8d7030d0598991a8b71f58a716a71b3
 
             
             //int currentPoints = 
