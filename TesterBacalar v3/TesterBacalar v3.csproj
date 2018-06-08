@@ -208,6 +208,7 @@
     <Content Include="Content\AdminStyle.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\QuestionStyles.css" />
     <Content Include="Scripts\admin-script\addTest.js" />
     <Content Include="Content\TesterStyle.css" />
     <Content Include="Content\UsersStyle.css" />
@@ -269,7 +270,7 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\UsersAdminstr.cshtml" />
     <Content Include="Views\Tester\testerView.cshtml" />
-    <Content Include="Views\Tester\bbb.cshtml" />
+    <Content Include="Views\Tester\Statistics.cshtml" />
     <Content Include="Views\Tester\Question.cshtml" />
     <Content Include="Views\Admin\TesterAdmin.cshtml" />
     <Content Include="Views\Tester\GetQuestion.cshtml" />
@@ -277,6 +278,7 @@
     <Content Include="Views\Admin\TesterAdminInp.cshtml" />
     <Content Include="Views\Admin\AddTest.cshtml" />
     <Content Include="Views\Admin\Error.cshtml" />
+    <Content Include="Views\Tester\ViewResult.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

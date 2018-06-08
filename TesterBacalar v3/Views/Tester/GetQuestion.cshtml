@@ -1,4 +1,4 @@
-﻿@Styles.Render("~/Content/QuestionStyle.css")
+﻿@Styles.Render("~/Content/QuestionStyles.css")
 @Scripts.Render("~/bundles/modernizr")
 @{
     /**/
@@ -8,13 +8,13 @@
 
 @model Questions
 
-<h2>
+<h3>
     @ViewBag.TestName
-</h2>
+</h3>
 
-<h2>
+<h3>
     @Model.question_text
-</h2>
+</h3>
 
 
 
@@ -29,9 +29,9 @@
             <div class="row">
                 <div class="col-xs-1 col-md-1">
                     <div class="form-group">
-                        <div class="SinglecheckBox">
-                            <div class="CheckStyle">
-                                @Html.RadioButton("arr", answer.answer_text)
+                        <div class="SingleRadio">
+                            <div class="RadioStyle">
+                                @Html.RadioButton("arr",answer.answer_text)
 
                             </div>
                         </div>
@@ -43,6 +43,7 @@
                     </div>
                 </div>
             </div>
+            <hr />
 
         }
     }
@@ -56,7 +57,8 @@
                     <div class="form-group">
                         <div class="SinglecheckBox">
                             <div class="CheckStyle">
-                                @Html.CheckBox("arr", answer.answer_text)
+                              
+                            <input name="arr" type="checkbox" value="@answer.answer_text" />
 
                             </div>
                         </div>
@@ -68,15 +70,16 @@
                     </div>
                 </div>
             </div>
+            <hr />
 
         }
     }
 
 
 
-    <input type="submit" value="Send" />
-    <input type="submit" name="action" value="fuck" class="btn btn-danger" />
-    <input type="submit" name="action" value="fre" class="btn btn-success" />
+    //<input type="submit" value="Send" />
+    <input type="reset" name="action" value="Пропустити" class="btn btn-danger" />
+    <input type="submit" name="action" value="Відповісти" class="btn btn-success" />
 }
 
 

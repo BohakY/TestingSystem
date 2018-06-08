@@ -20,9 +20,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Тестер", "Tester", "Tester")</li>
-                    <li>@Html.ActionLink("New", "testerView", "Tester")</li>
-                    <li>@Html.ActionLink("New222", "bbb", "Tester")</li>
+                    <li>@Html.ActionLink("Почати спочатку", "Tester", "Tester")</li>
+                    <li>
+                        @Html.ActionLink("Закінчити", "ResultView", new Rezult
+        {
+            user_id_ = 1,
+            test_id = 1,
+            points = 0,
+            total_score = 0,
+            data_time = DateTime.Now
+        }, null)
+                </li>
+                    <li>@Html.ActionLink("Статистика", "Statistics", "Tester")</li>
+                Statistics
                 </ul>
             </div>
         </div>

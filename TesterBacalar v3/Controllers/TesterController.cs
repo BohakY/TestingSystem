@@ -20,6 +20,8 @@ namespace TesterBacalar_v3.Controllers
 
             Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
             Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == userId);
+           // Questions firstQuestion = db.Questions.First(q => q.test_id == currentTest.test_id);
+            //int firstQuestionId = firstQuestion.question_id;
 
             TestSession testSession = new TestSession
             {
@@ -65,7 +67,15 @@ namespace TesterBacalar_v3.Controllers
             int currentTest = session.CurrentTest.test_id;
 
             int questionsCount = questions.Count();
-            int currentQuestion = session.CurrentQuestion;
+            int currentQuestion = session.CurrentQuestion + 1;
+
+      
+
+            string[] checkData = arr.ToArray();
+
+            List<Answers> trueData = db.Answers.Where(a => a.question_id == currentQuestion && a.answer_score == 1).ToList();
+
+            //string trueData = db.Answers.Where(a => a.question_id == currentQuestion && a.answer_score == 1).FirstOrDefault().answer_text;
 
             if (currentQuestion >= questionsCount - 1)
             {
@@ -81,9 +91,17 @@ namespace TesterBacalar_v3.Controllers
                 db.Rezult.Add(currentRezult);
                 db.SaveChanges();
                 
-
-                return RedirectToAction("ResultView");
+                
+                return RedirectToAction("ResultView", currentRezult);
             }
+
+           // int currentPoints, currentScore = 0;
+
+            //int[] ans = db.Answers.Where(a => a.question_id == currentQuestion).FirstOrDefault().answer_score
+
+
+
+
             session.CurrentQuestion += 1;
             Session[sessionId.ToString()] = session;
 
@@ -93,8 +111,7 @@ namespace TesterBacalar_v3.Controllers
 
         public ViewResult Tester()
         {
-            
-            ViewBag.Nameuser = SystemInfo.UserNameInSystem;
+
             ViewBag.Id = SystemInfo.UserId;
             var table = db.Tests.ToList();
             @ViewBag.Tests = table;
@@ -108,7 +125,7 @@ namespace TesterBacalar_v3.Controllers
             return View();
         }
 
-        public ViewResult ResultView()
+        public ViewResult ResultView(Rezult currentResult)
         {
             //Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
             //Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == SystemInfo.UserId);
@@ -119,17 +136,32 @@ namespace TesterBacalar_v3.Controllers
             ViewBag.currentUserSurname = currentUserSurname;
             ViewBag.currentUserFirstName = currentUserFirstName;
 
-            string testName = 
-            ViewBag.testName = testName;
+            string currentTest = db.Tests.Where(t => t.test_id == currentResult.test_id).FirstOrDefault().test_name;
+            ViewBag.currentTest = currentTest;
 
+            
             //int currentPoints = 
 
             return View();
         }
 
 
-        public ViewResult bbb()
+        public ViewResult Statistics()
         {
+            ViewBag.Id = SystemInfo.UserId;
+
+            string firstName = db.Users.Find(SystemInfo.UserId).first_name.ToString();
+            ViewBag.FirstName = firstName;
+
+            string lastName = db.Users.Find(SystemInfo.UserId).last_name.ToString();
+            ViewBag.LastName = lastName;
+
+
+            var statistics = db.Rezult.Where(s => s.user_id_ == SystemInfo.UserId).ToList();
+            var tableStat = statistics;
+            @ViewBag.tableStat = tableStat;
+
+
             @ViewBag.Who = "bbb";
             return View();
         }

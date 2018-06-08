@@ -40,6 +40,7 @@ namespace TesterBacalar_v3.Controllers
 
             if (res == 2)
             {
+                
                 return RedirectToAction("Tester", "Tester");
             }
             else if (res == 3)

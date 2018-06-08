@@ -10,31 +10,24 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <h3>Привіт!</h3>
-    <h3>@ViewBag.Who</h3>
+    <h3>@ViewBag.FirstName @ViewBag.LastName, вітаємо в системі!</h3>
+  
     <div class="row">
         <div class="col-xs-3 col-md-12">
-
             <table class="table">
-
                 <tr>
-                    <th>Іd </th>
-                    <th>Назва</th>
+                    <th>Назва </th>
                     <th>Предмет</th>
-
-
+                    <th></th>
                 </tr>
 
                 @foreach (TesterBacalar_v3.Tests b in ViewBag.Tests)
                 {
                     <tr>
-                        <td data-label="Іd Користувача"><p>@b.test_id</p></td>
+                        
                         <td><p>@b.test_name</p></td>
-                        <td><p>@b.subject_name</p></td>
-                        <
-
+                        <td><p>@b.subject_name</p></td>                   
                         <td>
-
                             <button>@Html.ActionLink("Пройти тест", "RunTest", "Tester", new { testId = b.test_id, userId = TesterBacalar_v3.Models.SystemInfo.UserId }, null) </button>
                         </td>
                     </tr>
@@ -42,8 +35,6 @@
             </table>
         </div>
     </div>
-    @ViewBag.Id
-   Hello @ViewBag.NameUser
 </body>
 </html>
 
