@@ -22,17 +22,17 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Почати спочатку", "Tester", "Tester")</li>
                     <li>
-                        @Html.ActionLink("Закінчити", "ResultView", new Rezult
-        {
-            user_id_ = 1,
-            test_id = 1,
-            points = 0,
-            total_score = 0,
-            data_time = DateTime.Now
-        }, null)
-                </li>
+                        @Html.ActionLink("Закінчити", "ViewResult", new Rezult
+                        {
+                            user_id_ = 1,
+                            test_id = 1,
+                            points = 0,
+                            total_score = 1,
+                            data_time = DateTime.Now
+                        }, null)
+                    </li>
                     <li>@Html.ActionLink("Статистика", "Statistics", "Tester")</li>
-                Statistics
+                    Statistics
                 </ul>
             </div>
         </div>
@@ -46,5 +46,31 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <footer class="site-footer">
+        <div id="footer-content">
+
+            <div class="logo">
+                <a href="index.html">
+                    <img class="graficlogo" src="../../Content/images/logog.png" alt="logo">
+                </a>
+
+            </div>
+            <div class="social">
+                <a href="https://www.google.com/intl/ru/gmail/about/"><img src="../../Content/images/social/em.png" alt="email"></a>
+                <a href="https://www.facebook.com/"><img src="../../Content/images/social/face.png" alt="facebook"></a>
+                <a href="https://www.google.com.ua"><img src="../../Content/images/social/goo.png" alt="google"></a>
+                <a href="https://www.instagram.com"><img src="../../Content/images/social/inst.png" alt="instagram"></a>
+                <a href="https://ru.pinterest.com/"><img src="../../Content/images/social/pint.png" alt="pint"></a>
+
+            </div>
+            <div>
+                <p class="footer-text">Design by Yaroslav Bohak 2018</p>
+                <p class="footer-text">yaroslavbohak@gmail.com</p>
+            </div>
+            
+
+            </div>
+    </footer>
 </body>
 </html>

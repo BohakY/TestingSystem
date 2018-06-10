@@ -1,22 +1,16 @@
-﻿
+﻿@Styles.Render("~/Content/QuestionStyles.css")
+@Scripts.Render("~/bundles/modernizr")
 @{
     ViewBag.Title = "ViewResult";
 }
 
-<h2>ViewResult</h2>
-<div> dsfdsg </div>
+<h2>  @ViewBag.currentUserFirstname @ViewBag.currentUserSurname, </h2>
+<h4>  ви пройшли тестування @ViewBag.CurrentTest, </h4>
+<h4>  Кількість правильних відповідей:  @ViewBag.Points , </h4>
+<h4>  Набрано балів:  @ViewBag.TotalScore балів , </h4>
+
+
 <div>
-    <hr />
-    <h2>
-        @ ViewBag.currentUserSurname
-    </h2>
-    
-    <hr />
-    @ ViewBag.currentUserFirstname
-    <div>
-        <hr />
-        @ ViewBag.currentTest
-    </div>
- 
+    <button class="btn btn-default">@Html.ActionLink("Переглянути статистику","Statistics","Tester", null, new { @class = "roundedButton" }) </button>
 </div>
 
