@@ -1,13 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "bbb";
+    ViewBag.Title = "Statistics";
 }
-
 <h2>Статистика</h2>
 <H3>
     Статистика студента: @ViewBag.FirstName @ViewBag.LastName.
 </H3>
-
 <body>
     <div class="row">
         <div class="col-xs-3 col-md-12">
@@ -19,17 +17,13 @@
                     <th>Дата</th>
                     <th></th>
                 </tr>
-
                 @foreach (TesterBacalar_v3.Rezult s in @ViewBag.tableStat)
                 {
                     <tr>
-
                         <td><p>@s.Tests.test_name</p></td>
                         <td><p>@s.points</p></td>
                         <td><p>@s.total_score</p></td>
-                        <td><p>@s.data_time</p></td>
-                        
-
+                        <td><p>@s.data_time</p></td>                        
                     </tr>
                 }
             </table>

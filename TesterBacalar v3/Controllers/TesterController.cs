@@ -22,7 +22,7 @@ namespace TesterBacalar_v3.Controllers
 
             Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
             Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == userId);
-  
+
             TestSession testSession = new TestSession
             {
                 Id = testSessionId,
@@ -34,45 +34,36 @@ namespace TesterBacalar_v3.Controllers
 
             Session[testSessionId.ToString()] = testSession;
 
-            return RedirectToAction("GetQuestion", new { sessionId = testSessionId } );
+            return RedirectToAction("GetQuestion", new { sessionId = testSessionId });
         }
 
         public ViewResult GetQuestion(Guid sessionId)
         {
             TestSession session = Session[sessionId.ToString()] as TestSession;
-            List<Questions> questions = session.CurrentTest.Questions.ToList();      
+            List<Questions> questions = session.CurrentTest.Questions.ToList();
             Questions question = questions[session.CurrentQuestion];
 
             ViewBag.Session = session;
-             
-
             return View(question);
         }
 
         public RedirectToRouteResult CheckResult(Guid sessionId, string[] arr, string action)
-        {     
-            //if(arr == null)
-            //{
-            //    @ViewBag.Error = "Виберіть відповідь!";
-
-            //}
+        {
             TestSession session = Session[sessionId.ToString()] as TestSession;
             List<Questions> questions = session.CurrentTest.Questions.ToList();
 
             int currentTest = session.CurrentTest.test_id;
-
             int questionsCount = questions.Count();
             Questions currentQuestionObj = db.Questions.FirstOrDefault(q => q.test_id == currentTest);
             int currentQuestion = currentQuestionObj.question_id + session.CurrentQuestion;
 
             if (action == "Пропустити")
             {
-               // session.CurrentQuestion += 1;
-                //Session[sessionId.ToString()] = session;
+                session.CurrentQuestion += 1;
+                Session[sessionId.ToString()] = session;
                 return RedirectToAction("GetQuestion");
-
             }
-            else if(action == "Відповісти")
+            else if (action == "Відповісти")
             {
                 bool isWrite = true;
 
@@ -83,25 +74,10 @@ namespace TesterBacalar_v3.Controllers
                         isWrite = false;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     isWrite = false;
                 }
-                
-                //for(int i = 0; i < arr.Length; i++)
-                //{
-                //    if (String.IsNullOrEmpty(arr[i]) == false)
-                //    {
-                //        isWrite = true;
-                //    }
-                //    else
-                //    {
-                //        isWrite = false;
-                //        break;
-                //    }
-                    
-                //}
-
                 if (isWrite)
                 {
                     List<string> checkData = arr.ToList();
@@ -134,7 +110,6 @@ namespace TesterBacalar_v3.Controllers
                             int answerScore = (int)element.answer_score;
                             SystemInfo.totalScore += answerScore;
                         }
-
                     }
 
                     if (session.CurrentQuestion >= questionsCount - 1)
@@ -163,17 +138,10 @@ namespace TesterBacalar_v3.Controllers
                 }
                 else
                 {
-                    
                     return RedirectToAction("GetQuestion", new { sessionId });
                 }
-
             }
-
-
             return RedirectToAction("GetQuestion", new { sessionId });
-
-
-
         }
 
         public ViewResult Tester()
@@ -182,7 +150,7 @@ namespace TesterBacalar_v3.Controllers
             ViewBag.Id = SystemInfo.UserId;
             var table = db.Tests.ToList();
             @ViewBag.Tests = table;
-      
+
             string firstName = db.Users.Find(SystemInfo.UserId).first_name.ToString();
             ViewBag.FirstName = firstName;
 
@@ -228,13 +196,10 @@ namespace TesterBacalar_v3.Controllers
             string lastName = db.Users.Find(SystemInfo.UserId).last_name.ToString();
             ViewBag.LastName = lastName;
 
-
             var statistics = db.Rezult.Where(s => s.user_id_ == SystemInfo.UserId).ToList();
             var tableStat = statistics;
             @ViewBag.tableStat = tableStat;
 
-
-            @ViewBag.Who = "bbb";
             return View();
         }
 

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tester Panel</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    @Styles.Render("~/Content/TesterStyle.css") 
+    @Styles.Render("~/Content/TesterStyle.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <h3>@ViewBag.FirstName @ViewBag.LastName, вітаємо в системі!</h3>
-  
+
     <div class="row">
         <div class="col-xs-3 col-md-12">
             <table class="table">
@@ -24,11 +24,15 @@
                 @foreach (TesterBacalar_v3.Tests b in ViewBag.Tests)
                 {
                     <tr>
-                        
+
                         <td><p>@b.test_name</p></td>
-                        <td><p>@b.subject_name</p></td>                   
+                        <td><p>@b.subject_name</p></td>
                         <td>
-                            <button>@Html.ActionLink("Пройти тест", "RunTest", "Tester", new { testId = b.test_id, userId = TesterBacalar_v3.Models.SystemInfo.UserId }, null) </button>
+                            <button>
+                                    @Html.ActionLink("Пройти тест", "RunTest", "Tester", 
+                                    new { testId = b.test_id, userId = TesterBacalar_v3.Models.SystemInfo.UserId }, 
+                                    null) 
+                            </button>
                         </td>
                     </tr>
                 }

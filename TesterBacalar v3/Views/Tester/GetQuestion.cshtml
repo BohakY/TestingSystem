@@ -9,26 +9,20 @@
     @Styles.Render("~/Content/QuestionStyles.css")
     @Scripts.Render("~/bundles/modernizr")
     @{
-
-
         ViewBag.Title = "Question " + ViewBag.Session.CurrentQuestion;
     }
-
     @model Questions
 </head>
     <body>
-
         <h3>
             @ViewBag.TestName
         </h3>
-
         <h3>
             @Model.question_text
         </h3>
 
         @using (Html.BeginForm("CheckResult", "Tester", new { sessionId = ViewBag.Session.Id }))
         {
-
             if (Model.type == 1)
             {
                 foreach (Answers answer in Model.Answers)
@@ -39,11 +33,7 @@
                             <div class="form-group">
                                 <div class="SingleRadio">
                                     <div class="RadioStyle">
-
                                         <input class="radiobtn" name="arr" type="radio" value=@answer.answer_text ) />
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +45,6 @@
                         </div>
                     </div>
                     <hr />
-
                 }
             }
             else if (Model.type == 2)
@@ -68,9 +57,7 @@
                             <div class="form-group">
                                 <div class="SinglecheckBox">
                                     <div class="CheckStyle">
-
                                         <input name="arr" type="checkbox" value="@answer.answer_text" />
-
                                     </div>
                                 </div>
                             </div>
@@ -82,10 +69,8 @@
                         </div>
                     </div>
                     <hr />
-
                 }
             }
-
             @ViewBag.ErrorMessage
 
             <input type="submit" name="action" value="Пропустити" class="btn btn-danger" />
