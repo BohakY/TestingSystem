@@ -12,6 +12,8 @@ namespace TesterBacalar_v3.Models
         public static string NameTestInSystem { get; set; }
         public static string SubjectName { get; set; }
         public static int NumberQuest { get; set; }
+        public static int totalScore = 0;
+        public static int points = 0;
 
         public SystemInfo()
         {

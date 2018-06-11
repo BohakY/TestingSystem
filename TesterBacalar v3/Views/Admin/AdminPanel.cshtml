@@ -17,9 +17,15 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+
     <div class="row">
-        <div class="col-xs-3 col-md-12">
+        <div class="form-group">
+            <h3>Результати тестування</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
 
             <table class="table">
 
@@ -37,30 +43,30 @@
                 </tr>
 
                 @foreach (TesterBacalar_v3.GetTableRezult_Result b in ViewBag.Rezult)
-    {
-                    
-            <tr>
-                <td data-label="Іd Користувача"><p>@b.user_id_</p></td>
-                <td><p>@b.login</p></td>
-                <td><p>@b.first_name</p></td>
-                <td><p>@b.last_name</p></td>
-                <td><p>@b.test_name</p></td>
-                <td><p>@b.subject_name</p></td>
-                <td><p>@b.rezult_id</p></td>
-                <td><p>@b.points</p></td>
-                <td><p>@b.total_score</p></td>
-                <td><p>@b.data_time</p></td>
-                <td>
-                    @using (Html.BeginForm())
                 {
-                @Html.AntiForgeryToken()
-                <div class="form-actions no-color">
-                    <input type="submit" value="Видалити" class="btn btn-default" />
-                </div>
+
+                    <tr>
+                        <td data-label="Іd Користувача"><p>@b.user_id_</p></td>
+                        <td><p>@b.login</p></td>
+                        <td><p>@b.first_name</p></td>
+                        <td><p>@b.last_name</p></td>
+                        <td><p>@b.test_name</p></td>
+                        <td><p>@b.subject_name</p></td>
+                        <td><p>@b.rezult_id</p></td>
+                        <td><p>@b.points</p></td>
+                        <td><p>@b.total_score</p></td>
+                        <td><p>@b.data_time</p></td>
+                        <td>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Видалити" class="btn btn-default" />
+                                </div>
+                            }
+                        </td>
+                    </tr>
                 }
-                </td>
-            </tr>
-}
             </table>
         </div>
     </div>

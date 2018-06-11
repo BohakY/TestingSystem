@@ -1,85 +1,80 @@
-﻿@Styles.Render("~/Content/QuestionStyles.css")
-@Scripts.Render("~/bundles/modernizr")
-@{
-    /**/
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Panel</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/QuestionStyles.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @{
+        ViewBag.Title = "Question " + ViewBag.Session.CurrentQuestion;
+    }
+    @model Questions
+</head>
+    <body>
+        <h3>
+            @ViewBag.TestName
+        </h3>
+        <h3>
+            @Model.question_text
+        </h3>
 
-    ViewBag.Title = "Question " + ViewBag.Session.CurrentQuestion;
-}
-
-@model Questions
-
-<h3>
-    @ViewBag.TestName
-</h3>
-
-<h3>
-    @Model.question_text
-</h3>
-
-
-
-@using (Html.BeginForm("CheckResult", "Tester", new { sessionId = ViewBag.Session.Id }))
-{
-
-    if (Model.type == 1)
-    {
-        foreach (Answers answer in Model.Answers)
+        @using (Html.BeginForm("CheckResult", "Tester", new { sessionId = ViewBag.Session.Id }))
         {
-            <hr />
-            <div class="row">
-                <div class="col-xs-1 col-md-1">
-                    <div class="form-group">
-                        <div class="SingleRadio">
-                            <div class="RadioStyle">
-                                @Html.RadioButton("arr",answer.answer_text)
-
+            if (Model.type == 1)
+            {
+                foreach (Answers answer in Model.Answers)
+                {
+                    <hr />
+                    <div class="row">
+                        <div class="col-xs-1 col-md-1">
+                            <div class="form-group">
+                                <div class="SingleRadio">
+                                    <div class="RadioStyle">
+                                        <input class="radiobtn" name="arr" type="radio" value=@answer.answer_text ) />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-md-10">
+                            <div class="form-group">
+                                @Html.Label(answer.answer_text)
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-10 col-md-10">
-                    <div class="form-group">
-                        @Html.Label(answer.answer_text)
-                    </div>
-                </div>
-            </div>
-            <hr />
-
-        }
-    }
-    else if (Model.type == 2)
-    {
-        foreach (Answers answer in Model.Answers)
-        {
-            <hr />
-            <div class="row">
-                <div class="col-xs-1 col-md-1">
-                    <div class="form-group">
-                        <div class="SinglecheckBox">
-                            <div class="CheckStyle">
-                              
-                            <input name="arr" type="checkbox" value="@answer.answer_text" />
-
+                    <hr />
+                }
+            }
+            else if (Model.type == 2)
+            {
+                foreach (Answers answer in Model.Answers)
+                {
+                    <hr />
+                    <div class="row">
+                        <div class="col-xs-1 col-md-1">
+                            <div class="form-group">
+                                <div class="SinglecheckBox">
+                                    <div class="CheckStyle">
+                                        <input name="arr" type="checkbox" value="@answer.answer_text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-md-10">
+                            <div class="form-group">
+                                @Html.Label(answer.answer_text)
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-10 col-md-10">
-                    <div class="form-group">
-                        @Html.Label(answer.answer_text)
-                    </div>
-                </div>
-            </div>
-            <hr />
+                    <hr />
+                }
+            }
+            @ViewBag.ErrorMessage
 
+            <input type="submit" name="action" value="Пропустити" class="btn btn-danger" />
+            <input type="submit" name="action" value="Відповісти" class="btn btn-success" />
         }
-    }
-
-
-
-    //<input type="submit" value="Send" />
-    <input type="reset" name="action" value="Пропустити" class="btn btn-danger" />
-    <input type="submit" name="action" value="Відповісти" class="btn btn-success" />
-}
-
-
+    </body>
+</html>

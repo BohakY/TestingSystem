@@ -33,6 +33,24 @@ namespace TesterBacalar_v3.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult TestMenu(string action)
+        {
+            if(action == "Створити тест")
+            {
+                return RedirectToAction("TesterAdmin");
+            }
+            else if (action == "Видалити тест")
+            {
+                return RedirectToAction("DeleteTest");
+            }
+            else if (action == "Переглянути список всіх тестів")
+            {
+                return RedirectToAction("ShowAllTest");
+            }
+            return View();
+        }
+
         public ViewResult TesterAdmin()
         {
             var table = Tes.GetListSubject(0).ToList();
@@ -298,6 +316,100 @@ namespace TesterBacalar_v3.Controllers
                 return RedirectToAction("TestMenu");
             }
  
+            return View();
+        }
+
+        public ViewResult DeleteTest()
+        {
+            var table = from Tests in Tes.Tests
+                        select new
+                        {
+                            NameTest = Tests.test_name
+                        };
+
+            var tableList = table.ToList();
+            string[] tableString = new string[tableList.Count];
+
+            for(int i = 0; i<tableList.Count; i++)
+            {
+                tableString[i] = tableList[i].NameTest;
+            }
+
+            var tableFinish = tableString.ToList();
+            User us = new User();
+            us.DropDownList = new SelectList(tableFinish);
+            return View(us);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteTest(string selectTest)
+        {
+            SystemInfo.NameTestInSystem = selectTest;
+
+            SystemInfo.SubjectName = Tes.Tests.Where(c => c.test_name == selectTest).
+                Select(c => c.subject_name).FirstOrDefault();
+
+            return RedirectToAction("ConfirmDelete");
+        }
+
+        public ViewResult ConfirmDelete()
+        {
+            ViewBag.NameTest = SystemInfo.NameTestInSystem;
+            ViewBag.SubjName = SystemInfo.SubjectName;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ConfirmDelete(string action)
+        {
+            if(action == "Так, видалити")
+            {
+                var idTest = from Tests in Tes.Tests
+                             where Tests.test_name == SystemInfo.NameTestInSystem
+                             select new
+                             {
+                                 idT = Tests.test_id
+                             };
+                var temp = idTest.ToList();
+                int Id = temp[0].idT;
+
+                var table = from Questions in Tes.Questions
+                            where Questions.test_id == Id
+                            select new
+                            {
+                                qestId = Questions.question_id
+                            };
+                var masQestId = table.ToList();
+
+                for (int i = 0; i < masQestId.Count; i++)
+                {
+                    int idQwe = masQestId[i].qestId;
+                    Tes.Answers.RemoveRange(Tes.Answers.Where(c => c.question_id == idQwe));
+                    Tes.SaveChanges();
+                }
+
+                Tes.Questions.RemoveRange(Tes.Questions.Where(c => c.test_id == Id));
+                Tes.SaveChanges();
+
+                Tes.Tests.RemoveRange(Tes.Tests.Where(c => c.test_name == SystemInfo.NameTestInSystem));
+                Tes.SaveChanges();
+
+                return RedirectToAction("TestMenu");
+            }
+            else if(action == "Ні, ще не видаляти")
+            {
+                SystemInfo.NameTestInSystem = null;
+                SystemInfo.SubjectName = null;
+                return RedirectToAction("TestMenu");
+            }
+
+            return View();
+        }
+
+        public ViewResult ShowAllTest()
+        {
+            var table = Tes.Tests.ToList();
+            ViewBag.Rezult = table;
             return View();
         }
     }

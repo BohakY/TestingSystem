@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Delete Test";
+}
+
+@model TesterBacalar_v3.Models.User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/AdminPanelStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <div class="row">
+        <div class="form-horizontal">
+            @using (Html.BeginForm())
+            {
+                <div class="col-xs-12 col-md-12">
+                    <div class="form-group">
+                        <label>Виберіть тест який Ви хочете видалити</label>
+                        <p>
+                            <select name="selectTest" class="form-control" id="intfor">
+                                @foreach (var item in Model.DropDownList)
+                                    {
+                            <option>@Html.DisplayFor(modelItem => item.Text)</option>
+                                    }
+                            </select>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Видалити" class="btn btn-danger" />
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</body>
+</html>

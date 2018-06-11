@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = "Confirm";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/AdminStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="text-danger">
+                <h3>Ви дійсно хочете видалити тест? Тест буде видалено назавжди! із усіма запитаннями та відподіями!</h3>
+            </div>
+            </div>
+        </div>
+
+            <div class="form-horizontal">
+                @using (Html.BeginForm())
+                {
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            <h4>Назва тесту: @ViewBag.NameTest</h4>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            <h4>Назва предмету: @ViewBag.SubjName</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="form-group">
+                            <input type="submit" name="action" value="Так, видалити" class="btn btn-danger" />
+                            <input type="submit" name="action" value="Ні, ще не видаляти" class="btn btn-success" />
+                        </div>
+                        </div>
+                        </div>
+                        }
+                    </div>
+
+</body>
+</html>
+

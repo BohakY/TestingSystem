@@ -10,9 +10,11 @@ namespace TesterBacalar_v3.Controllers
 {
     public class TesterController : Controller
     {
-
         TesterBacalarWorkBDEntities db = new TesterBacalarWorkBDEntities();
-        // GET: Tester
+
+        const int ANSWERCOEF1 = 1;
+        const int ANSWERCOEF2 = 2;
+        const int ANSWERCOEF3 = 3;
 
         public RedirectToRouteResult RunTest(int testId, int userId)
         {
@@ -20,8 +22,6 @@ namespace TesterBacalar_v3.Controllers
 
             Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
             Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == userId);
-           // Questions firstQuestion = db.Questions.First(q => q.test_id == currentTest.test_id);
-            //int firstQuestionId = firstQuestion.question_id;
 
             TestSession testSession = new TestSession
             {
@@ -32,81 +32,116 @@ namespace TesterBacalar_v3.Controllers
                 CurrentTest = currentTest
             };
 
-            //string testName = currentTest.test_name.ToString();
-            
-
             Session[testSessionId.ToString()] = testSession;
 
-            return RedirectToAction("GetQuestion", new { sessionId = testSessionId } );
+            return RedirectToAction("GetQuestion", new { sessionId = testSessionId });
         }
 
         public ViewResult GetQuestion(Guid sessionId)
         {
             TestSession session = Session[sessionId.ToString()] as TestSession;
             List<Questions> questions = session.CurrentTest.Questions.ToList();
-            
             Questions question = questions[session.CurrentQuestion];
 
             ViewBag.Session = session;
-
-          
-
             return View(question);
         }
 
         public RedirectToRouteResult CheckResult(Guid sessionId, string[] arr, string action)
         {
-            //if(action == "fre")
-            //{
-            //    return RedirectToAction("GetQuestion");
-            //}
-
             TestSession session = Session[sessionId.ToString()] as TestSession;
             List<Questions> questions = session.CurrentTest.Questions.ToList();
 
             int currentTest = session.CurrentTest.test_id;
-
             int questionsCount = questions.Count();
-            int currentQuestion = session.CurrentQuestion + 1;
+            Questions currentQuestionObj = db.Questions.FirstOrDefault(q => q.test_id == currentTest);
+            int currentQuestion = currentQuestionObj.question_id + session.CurrentQuestion;
 
-      
-
-            string[] checkData = arr.ToArray();
-
-            List<Answers> trueData = db.Answers.Where(a => a.question_id == currentQuestion && a.answer_score == 1).ToList();
-
-            //string trueData = db.Answers.Where(a => a.question_id == currentQuestion && a.answer_score == 1).FirstOrDefault().answer_text;
-
-            if (currentQuestion >= questionsCount - 1)
+            if (action == "Пропустити")
             {
-                Rezult currentRezult = new Rezult
-                {
-                    user_id_ = SystemInfo.UserId,
-                    test_id = currentTest,
-                    points = 7,
-                    total_score = 18,
-                    data_time = DateTime.Now
-                };
-
-                db.Rezult.Add(currentRezult);
-                db.SaveChanges();
-                
-                
-                return RedirectToAction("ResultView", currentRezult);
+                session.CurrentQuestion += 1;
+                Session[sessionId.ToString()] = session;
+                return RedirectToAction("GetQuestion");
             }
+            else if (action == "Відповісти")
+            {
+                bool isWrite = true;
 
-           // int currentPoints, currentScore = 0;
+                try
+                {
+                    if (arr.Length == 0)
+                    {
+                        isWrite = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    isWrite = false;
+                }
+                if (isWrite)
+                {
+                    List<string> checkData = arr.ToList();
 
-            //int[] ans = db.Answers.Where(a => a.question_id == currentQuestion).FirstOrDefault().answer_score
+                    List<Answers> storageData = db.Answers.Where(a => a.question_id == currentQuestion).ToList();
+                    List<Answers> trueData = new List<Answers>();
 
+                    foreach (Answers elem in storageData)
+                    {
+                        if (elem.answer_score == ANSWERCOEF1 || elem.answer_score == ANSWERCOEF2 || elem.answer_score == ANSWERCOEF3)
+                        {
+                            trueData.Add(elem);
+                        }
+                    }
 
+                    List<string> trueDataString = new List<string>();
 
+                    foreach (Answers element in trueData)
+                    {
+                        string currentElement = element.answer_text;
+                        trueDataString.Add(currentElement);
+                    }
 
-            session.CurrentQuestion += 1;
-            Session[sessionId.ToString()] = session;
+                    bool isEqual = trueDataString.SequenceEqual(checkData);
+                    if (isEqual)
+                    {
+                        SystemInfo.points++;
+                        foreach (Answers element in trueData)
+                        {
+                            int answerScore = (int)element.answer_score;
+                            SystemInfo.totalScore += answerScore;
+                        }
+                    }
 
+                    if (session.CurrentQuestion >= questionsCount - 1)
+                    {
+                        Rezult currentRezult = new Rezult
+                        {
+                            user_id_ = SystemInfo.UserId,
+                            test_id = currentTest,
+                            points = SystemInfo.points,
+                            total_score = SystemInfo.totalScore,
+                            data_time = DateTime.Now
+                        };
+
+                        db.Rezult.Add(currentRezult);
+                        db.SaveChanges();
+
+                        ViewBag.CurrentTest = currentTest;
+                        ViewBag.Score = SystemInfo.points;
+                        return RedirectToAction("ViewResult", currentRezult);
+                    }
+
+                    session.CurrentQuestion += 1;
+                    Session[sessionId.ToString()] = session;
+
+                    return RedirectToAction("GetQuestion", new { sessionId });
+                }
+                else
+                {
+                    return RedirectToAction("GetQuestion", new { sessionId });
+                }
+            }
             return RedirectToAction("GetQuestion", new { sessionId });
-
         }
 
         public ViewResult Tester()
@@ -115,7 +150,7 @@ namespace TesterBacalar_v3.Controllers
             ViewBag.Id = SystemInfo.UserId;
             var table = db.Tests.ToList();
             @ViewBag.Tests = table;
-      
+
             string firstName = db.Users.Find(SystemInfo.UserId).first_name.ToString();
             ViewBag.FirstName = firstName;
 
@@ -125,10 +160,8 @@ namespace TesterBacalar_v3.Controllers
             return View();
         }
 
-        public ViewResult ResultView(Rezult currentResult)
+        public ViewResult ViewResult(Rezult currentResult)
         {
-            //Tests currentTest = db.Tests.FirstOrDefault(t => t.test_id == testId);
-            //Users currentUser = db.Users.FirstOrDefault(u => u.user_id_ == SystemInfo.UserId);
 
             string currentUserFirstName = db.Users.Where(u => u.user_id_ == SystemInfo.UserId).FirstOrDefault().first_name;
             string currentUserSurname = db.Users.Where(u => u.user_id_ == SystemInfo.UserId).FirstOrDefault().last_name;
@@ -136,16 +169,24 @@ namespace TesterBacalar_v3.Controllers
             ViewBag.currentUserSurname = currentUserSurname;
             ViewBag.currentUserFirstName = currentUserFirstName;
 
-<<<<<<< HEAD
+
             string currentTest = db.Tests.Where(t => t.test_id == currentResult.test_id).FirstOrDefault().test_name;
             ViewBag.currentTest = currentTest;
-=======
+<<<<<<< HEAD
+
             //string testName = 
             //ViewBag.testName = testName;
->>>>>>> fde36d39b8d7030d0598991a8b71f58a716a71b3
+=======
+>>>>>>> 8a2bcced945f8eb5a4d90072dd96939338e1234a
 
-            
-            //int currentPoints = 
+
+            ViewBag.Points = SystemInfo.points;
+            ViewBag.TotalScore = SystemInfo.totalScore;
+
+            //if (action == "Переглянути статистику")
+            //{
+            //    return RedirectToAction("Satistics") as ViewResult;
+            //}
 
             return View();
         }
@@ -161,13 +202,10 @@ namespace TesterBacalar_v3.Controllers
             string lastName = db.Users.Find(SystemInfo.UserId).last_name.ToString();
             ViewBag.LastName = lastName;
 
-
             var statistics = db.Rezult.Where(s => s.user_id_ == SystemInfo.UserId).ToList();
             var tableStat = statistics;
             @ViewBag.tableStat = tableStat;
 
-
-            @ViewBag.Who = "bbb";
             return View();
         }
 

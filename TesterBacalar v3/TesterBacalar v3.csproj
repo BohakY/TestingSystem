@@ -279,6 +279,9 @@
     <Content Include="Views\Admin\AddTest.cshtml" />
     <Content Include="Views\Admin\Error.cshtml" />
     <Content Include="Views\Tester\ViewResult.cshtml" />
+    <Content Include="Views\Admin\DeleteTest.cshtml" />
+    <Content Include="Views\Admin\ShowAllTest.cshtml" />
+    <Content Include="Views\Admin\ConfirmDelete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -16,18 +16,32 @@
 
 </head>
 <body>
-    <div class="row">
-        <div class="col-xs-6 col-md-6">
-            <div class="form-horizontal">
-                <button class="btn btn-default">@Html.ActionLink("Створити тест", "TesterAdmin")</button>
+
+        @using (Html.BeginForm())
+        {
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <input type="submit" name="action" value="Створити тест" class="btn btn-default" />
+            </div>
+            <div class="col-xs-6 col-md-6">
+                <input type="submit" name="action" value="Видалити тест" class="btn btn-default" />
             </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-            <div class="form-horizontal">
-                <p>Видалити тест</p>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <input type="submit" name="action" value="Переглянути список всіх тестів" class="btn btn-default" />
+            </div>
+            <div class="col-xs-6 col-md-6">
+                Редагувати тести
             </div>
         </div>
     </div>
+        }
+    
+
 </body>
 </html>
 
