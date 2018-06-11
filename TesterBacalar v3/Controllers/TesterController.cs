@@ -173,6 +173,7 @@ namespace TesterBacalar_v3.Controllers
             string currentTest = db.Tests.Where(t => t.test_id == currentResult.test_id).FirstOrDefault().test_name;
             ViewBag.currentTest = currentTest;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             //string testName = 
             //ViewBag.testName = testName;
@@ -180,6 +181,10 @@ namespace TesterBacalar_v3.Controllers
 >>>>>>> 8a2bcced945f8eb5a4d90072dd96939338e1234a
 
 
+=======
+
+
+>>>>>>> 8a2bcced945f8eb5a4d90072dd96939338e1234a
             ViewBag.Points = SystemInfo.points;
             ViewBag.TotalScore = SystemInfo.totalScore;
 
